@@ -40,6 +40,30 @@
 	
         $conn = NULL;
 	}
+
+	if(isset($_POST['old-pass']) && isset($_POST['new-pass']) && isset($_POST['confirm-pass'])){
+		$oldPass = $_POST['old-pass'];
+		$newPass = $_POST['new-pass'];
+		$confirmPass = $_POST['confirm-pass'];
+
+		$conn = new PDO($dsn, $username, $password);
+		$logSesion = $_SESSION["admin"];
+		$dbPass = $conn->query("SELECT password FROM admin WHERE login='$logSesion'");
+		$dbPass = $dbPass->fetch()[0];
+
+		if ($oldPass === $dbPass) {
+			if($newPass === $confirmPass) {
+				$conn->query("UPDATE admin SET password = '$confirmPass' WHERE login = '$logSesion'");
+				echo "<div id='success-log' class='slide-up'>Success! Password Changed!</div>";
+			} else echo "<div id='error-log' class='slide-up'>Password doesn't match</div>";
+
+		} else echo "<div id='error-log' class='slide-up'>Old password wrong</div>";
+
+
+
+
+
+	}
 	
 
 	if(isset($_POST["area-description"])){

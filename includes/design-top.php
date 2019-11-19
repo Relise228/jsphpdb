@@ -62,21 +62,21 @@
         <div class="form-group">
             <label for="old-password">Old password</label>
             <div class="flex">
-            <input name="password" type="password" class="form-control" id="old-password"  placeholder="Old password">
+            <input name="old-pass" type="password" class="form-control" id="old-password"  placeholder="Old password">
             <i class="far fa-eye third-eye"></i>
             </div>
         </div>
         <div class="form-group new-pass">
             <label for="new-password-first">New password</label>
             <div class="flex">
-            <input name="password" type="password" class="form-control" id="new-password-first" placeholder="New password">
+            <input name="new-pass" type="password" class="form-control" id="new-password-first" placeholder="New password">
             <i class="far fa-eye first-eye"></i>
             </div>
         </div>
         <div class="form-group">
             <label for="new-password-second">New password again</label>
             <div class="flex">
-            <input name="password" type="password" class="form-control" id="new-password-second" placeholder="New password again">
+            <input name="confirm-pass" type="password" class="form-control" id="new-password-second" placeholder="New password again">
             <i class="far fa-eye second-eye"></i>
             </div>
         </div>
