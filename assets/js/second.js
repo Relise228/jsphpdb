@@ -28,21 +28,39 @@ $('.generate-pass').click(event => {
 });
 
 $('.first-eye').click(() => {
-  if ($('#new-password-first').prop('type') === 'password')
+  if ($('#new-password-first').prop('type') === 'password') {
     $('#new-password-first').prop('type', 'text');
-  else $('#new-password-first').prop('type', 'password');
+    $('.first-eye').removeClass('fa-eye');
+    $('.first-eye').addClass('fa-eye-slash');
+  } else {
+    $('.first-eye').removeClass('fa-eye-slash');
+    $('.first-eye').addClass('fa-eye');
+    $('#new-password-first').prop('type', 'password');
+  }
 });
 
 $('.second-eye').click(() => {
-  if ($('#new-password-second').prop('type') === 'password')
+  if ($('#new-password-second').prop('type') === 'password') {
+    $('.second-eye').removeClass('fa-eye');
+    $('.second-eye').addClass('fa-eye-slash');
     $('#new-password-second').prop('type', 'text');
-  else $('#new-password-second').prop('type', 'password');
+  } else {
+    $('.second-eye').removeClass('fa-eye-slash');
+    $('.second-eye').addClass('fa-eye');
+    $('#new-password-second').prop('type', 'password');
+  }
 });
 
 $('.third-eye').click(() => {
-  if ($('#old-password').prop('type') === 'password')
+  if ($('#old-password').prop('type') === 'password') {
+    $('.third-eye').removeClass('fa-eye');
+    $('.third-eye').addClass('fa-eye-slash');
     $('#old-password').prop('type', 'text');
-  else $('#old-password').prop('type', 'password');
+  } else {
+    $('.third-eye').removeClass('fa-eye-slash');
+    $('.third-eye').addClass('fa-eye');
+    $('#old-password').prop('type', 'password');
+  }
 });
 setTimeout(() => {
   $('.slide-up').slideUp(1000);
