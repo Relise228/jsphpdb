@@ -13,4 +13,5 @@
   crossorigin="anonymous"></script>
     <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>     
     <script src="assets/js/main.js"></script>
-	<script src="assets/js/second.js"></script>      
+    <script src="https://kit.fontawesome.com/3b5cfdfc8f.js" crossorigin="anonymous"></script>
+	<script src="assets/js/second.js"></script>  

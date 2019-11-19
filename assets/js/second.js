@@ -1,18 +1,58 @@
-if ($(".profile-image").hasClass("disable-login") === false) {
-  $(".profile-image").dblclick(() => {
-    $("#myModalBox").modal("show");
+if ($('.profile-image').hasClass('disable-login') === false) {
+  $('.profile-image').dblclick(() => {
+    $('.mod-first').modal('show');
   });
 }
 
+$('.btn-edit-ind').click(event => {
+  event.preventDefault();
+  $('.modal-second').modal('show');
+});
+
+function generatePassword() {
+  let length = 8,
+    charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789',
+    retVal = '';
+  for (let i = 0, n = charset.length; i < length; ++i) {
+    retVal += charset.charAt(Math.floor(Math.random() * n));
+  }
+  return retVal;
+}
+
+$('.generate-pass').click(event => {
+  event.preventDefault();
+  const randomPassword = generatePassword();
+  console.log(randomPassword);
+  $('#new-password-first').val(randomPassword);
+  $('#new-password-second').val(randomPassword);
+});
+
+$('.first-eye').click(() => {
+  if ($('#new-password-first').prop('type') === 'password')
+    $('#new-password-first').prop('type', 'text');
+  else $('#new-password-first').prop('type', 'password');
+});
+
+$('.second-eye').click(() => {
+  if ($('#new-password-second').prop('type') === 'password')
+    $('#new-password-second').prop('type', 'text');
+  else $('#new-password-second').prop('type', 'password');
+});
+
+$('.third-eye').click(() => {
+  if ($('#old-password').prop('type') === 'password')
+    $('#old-password').prop('type', 'text');
+  else $('#old-password').prop('type', 'password');
+});
 setTimeout(() => {
-  $(".slide-up").slideUp(1000);
+  $('.slide-up').slideUp(1000);
 }, 5000);
 
-$("#adminDescription.admin-edit").dblclick(() => {
-  let tempText = $("#adminDescription")
+$('#adminDescription.admin-edit').dblclick(() => {
+  let tempText = $('#adminDescription')
     .text()
     .trim();
-  $("#adminDescription")
+  $('#adminDescription')
     .replaceWith(`<form class="about-edit" action="index.php" method="POST">
         <textarea class="form-control" rows="10" name="area-description">${tempText}</textarea>
         <button class="btn btn-primary" type="submit" name="btn-description">Save</button>
@@ -20,15 +60,15 @@ $("#adminDescription.admin-edit").dblclick(() => {
     </form>`);
 });
 
-$(".item.projects.admin-edit").dblclick(function() {
-  let id = $(this).attr("id");
+$('.item.projects.admin-edit').dblclick(function() {
+  let id = $(this).attr('id');
   let title = $(`#${id}.projects .title`)
     .text()
     .trim();
   let tempText = $(`#${id}.projects .p-project`)
     .text()
     .trim();
-  let tempLink = $(`#${id}.projects a.more-link`).attr("href");
+  let tempLink = $(`#${id}.projects a.more-link`).attr('href');
 
   $(
     `#${id}.projects`
@@ -47,8 +87,8 @@ $(".item.projects.admin-edit").dblclick(function() {
   </form>`);
 });
 
-$(".item.work.admin-edit").dblclick(function() {
-  let id = $(this).attr("id");
+$('.item.work.admin-edit').dblclick(function() {
+  let id = $(this).attr('id');
   let title = $(`#${id}.work .title`)
     .text()
     .trim();
@@ -81,12 +121,12 @@ $(".item.work.admin-edit").dblclick(function() {
     </div>`);
 });
 
-$(".item.skill.admin-edit").dblclick(function() {
-  let id = $(this).attr("id");
+$('.item.skill.admin-edit').dblclick(function() {
+  let id = $(this).attr('id');
   let title = $(`#${id}.skill .level-title`)
     .text()
     .trim();
-  let percent = $(`#${id}.skill .level-bar-inner`).attr("data-level");
+  let percent = $(`#${id}.skill .level-bar-inner`).attr('data-level');
 
   $(
     `#${id}.skill`
@@ -104,29 +144,29 @@ $(".item.skill.admin-edit").dblclick(function() {
      </form>`);
 });
 
-$(".project-add").click(function() {
-  $(".projects-form-add").addClass("visible");
+$('.project-add').click(function() {
+  $('.projects-form-add').addClass('visible');
 });
 
-$(".btn-work-add").click(function() {
-  $(".work-form-add").addClass("visible");
+$('.btn-work-add').click(function() {
+  $('.work-form-add').addClass('visible');
 });
 
-$(".btn-skill-add").click(function() {
-  $(".skill-form-add").addClass("visible");
+$('.btn-skill-add').click(function() {
+  $('.skill-form-add').addClass('visible');
 });
 
-$(".btn-can").click(function(event) {
+$('.btn-can').click(function(event) {
   event.preventDefault();
-  $(".skill-form-add").removeClass("visible");
+  $('.skill-form-add').removeClass('visible');
 });
 
-$(".btn-work-can").click(function(event) {
+$('.btn-work-can').click(function(event) {
   event.preventDefault();
-  $(".work-form-add").removeClass("visible");
+  $('.work-form-add').removeClass('visible');
 });
 
-$(".btn-proj-can").click(function(event) {
+$('.btn-proj-can').click(function(event) {
   event.preventDefault();
-  $(".projects-form-add").removeClass("visible");
+  $('.projects-form-add').removeClass('visible');
 });
