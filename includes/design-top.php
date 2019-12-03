@@ -1,8 +1,8 @@
 <header class="header">
         <div class="container">                       
-            <img class="profile-image img-responsive pull-left <?php if (isset($_SESSION["admin"])) echo "disable-login"; ?>" src="assets/images/profile.png" alt="James Lee" />
+            <img class="profile-image img-responsive pull-left <?php if (isset($_SESSION["admin"])) echo "disable-login"; ?>" src="assets/images/me.png" alt="James Lee" />
             <div class="profile-content pull-left">
-                <h1 class="name">James Lee</h1>
+                <h1 class="name">Andrii Yuzvyk</h1>
                 <h2 class="desc">Web App Developer</h2>   
                 
                 <form action="index.php" method="POST">
